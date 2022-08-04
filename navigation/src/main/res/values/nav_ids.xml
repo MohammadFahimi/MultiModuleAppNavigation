@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    graph ids-->
+    <item name="login_flow" type="id" />
+    <item name="register_flow" type="id" />
+    <item name="home_flow" type="id" />
+    <item name="feature_a_flow" type="id" />
+    <item name="feature_b_flow" type="id" />
+
+</resources>

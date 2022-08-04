@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@id/feature_a_flow"
+        app:startDestination="@id/fragment_feature">
+
+    <include app:graph="@navigation/login_flow" />
+    <include app:graph="@navigation/register_flow" />
+    <include app:graph="@navigation/feature_b_flow" />
+
+    <fragment
+            android:id="@id/fragment_feature"
+            android:name="com.mfahimi.featurea.FeatureAFragment"
+            android:label="fragment_feature_a"
+            tools:layout="@layout/fragment_feature_a">
+        <action
+                android:id="@+id/feature_to_login"
+                app:destination="@id/login_flow">
+            <argument
+                    android:name="user_name"
+                    app:argType="string"
+                    app:nullable="false" />
+        </action>
+        <action
+                android:id="@+id/feature_to_register"
+                app:destination="@id/register_flow">
+            <argument
+                    android:name="input"
+                    app:argType="string"
+                    app:nullable="false" />
+        </action>
+
+        <action
+                android:id="@+id/feature_a_to_feature_b"
+                app:destination="@id/feature_b_flow">
+            <argument
+                    android:name="complex_data"
+                    app:argType="com.mfahimi.navigation.args.featureb.FeatureBFragmentArg"
+                    app:nullable="false" />
+        </action>
+
+    </fragment>
+
+</navigation>

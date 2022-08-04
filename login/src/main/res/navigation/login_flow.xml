@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@id/login_flow"
+        app:startDestination="@id/fragment_login">
+
+    <fragment
+            android:id="@id/fragment_login"
+            android:name="com.mfahimi.login.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login">
+        <argument
+                android:name="user_name"
+                app:argType="string"
+                app:nullable="false" />
+
+        <deepLink app:uri="https://example.com/login?username={user_name}" />
+
+        <action
+                android:id="@+id/action_login_to_register"
+                app:destination="@id/login_register_fragment">
+            <argument
+                    android:name="input"
+                    app:argType="string"
+                    app:nullable="false" />
+        </action>
+    </fragment>
+
+
+    <fragment
+            android:id="@id/login_register_fragment"
+            android:name="com.mfahimi.login.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register">
+        <argument
+                android:name="input"
+                app:argType="string"
+                app:nullable="false" />
+
+    </fragment>
+
+
+</navigation>

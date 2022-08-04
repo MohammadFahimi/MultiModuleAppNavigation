@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Home Flow -->
+    <item name="fragment_home" type="id" />
+
+    <!-- Feature A Flow-->
+    <item name="fragment_feature" type="id" />
+
+    <!--  Feature B Flow -->
+    <item name="fragment_feature_b" type="id" />
+
+    <!--  Login Flow-->
+    <item name="fragment_login" type="id" />
+    <item name="login_register_fragment" type="id" />
+
+    <!-- Register Flow   -->
+    <item name="register_fragment" type="id" />
+
+</resources>

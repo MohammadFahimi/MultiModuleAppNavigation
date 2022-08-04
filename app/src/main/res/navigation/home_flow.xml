@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@id/home_flow"
+        app:startDestination="@id/fragment_home">
+
+    <include app:graph="@navigation/feature_b_flow" />
+
+    <include app:graph="@navigation/login_flow" />
+
+    <include app:graph="@navigation/register_flow" />
+
+    <fragment
+            android:id="@id/fragment_home"
+            android:name="com.mfahimi.multimodulenavigation.fragment.HomeFragment"
+            tools:layout="@layout/fragment_home">
+
+        <action
+                android:id="@+id/home_to_feature_b"
+                app:destination="@id/feature_b_flow">
+            <argument
+                    android:name="complex_data"
+                    app:argType="com.mfahimi.navigation.args.featureb.FeatureBFragmentArg"
+                    app:nullable="false" />
+        </action>
+    </fragment>
+
+
+</navigation>
