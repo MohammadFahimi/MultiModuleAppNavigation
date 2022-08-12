@@ -1,5 +1,6 @@
 package com.mfahimi.navigation.runner
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import com.mfahimi.navigation.command.NavigationCommand
@@ -43,7 +44,11 @@ class NavigationCommandRunner(
     }
 
     private fun navigateDeepLink(command: NavigationCommand.DeepLink) {
-        navController.navigate(command.deepLinkRequest)
+        navController.createDeepLink()
+            .setDestination(command.destinationId)
+            .setArguments(command.args?.bundlify())
+            .createPendingIntent()
+            .send()
     }
 
     private fun navigateCommand(command: NavigationCommand.ViaCommand) {
@@ -55,4 +60,11 @@ class NavigationCommandRunner(
             run(subCommand)
         }
     }
+
+    private fun Map<String, String>.bundlify(): Bundle {
+        val bundle = Bundle()
+        for (entry in this) { bundle.putString(entry.key, entry.value) }
+        return bundle
+    }
+
 }

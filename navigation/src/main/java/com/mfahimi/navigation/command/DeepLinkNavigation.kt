@@ -1,7 +1,6 @@
 package com.mfahimi.navigation.command
 
-import androidx.core.net.toUri
-import androidx.navigation.NavDeepLinkRequest
+import com.mfahimi.navigation.R
 
 
 sealed class DeepLinkNavigation(
@@ -10,17 +9,15 @@ sealed class DeepLinkNavigation(
 
     class ToRegister(input: String) : DeepLinkNavigation(
         NavigationCommand.DeepLink(
-            NavDeepLinkRequest.Builder
-                .fromUri("https://example.com/register?input=$input".toUri())
-                .build()
+            R.id.register_fragment,
+            mapOf("input" to input),
         )
     )
 
       class ToLogin(userName: String) : DeepLinkNavigation(
         NavigationCommand.DeepLink(
-            NavDeepLinkRequest.Builder
-                .fromUri("https://example.com/login?username=$userName".toUri())
-                .build()
+            R.id.fragment_login,
+            mapOf("user_name" to userName)
         )
     )
 

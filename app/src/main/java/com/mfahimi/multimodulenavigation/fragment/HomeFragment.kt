@@ -24,7 +24,6 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun navigateToRegister() {
-        //TODO( Make the application to crash)
         navigate(DeepLinkNavigation.ToRegister("mfahimi"))
     }
 }
